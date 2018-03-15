@@ -118,6 +118,12 @@ for page in itertools.count():
                 csvMth = title[1][:3]
                 csvYr = '20'+title[2]
             csvMth = csvMth[:3]
+            if 'ove' in csvMth:
+                csvMth = title[1]
+                csvYr = '20'+title[2]
+            if '20P' in csvYr:
+                csvMth = title[1].split('-')[0]
+                csvYr = '20'+title[1].split('-')[-1]
             csvMth = convert_mth_strings(csvMth.upper())
             data.append([csvYr, csvMth, link])
 
